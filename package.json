@@ -4,7 +4,8 @@
   "description": "Sample of full stack project.",
   "scripts": {
     "postinstall": "npm install --prefix ./client",
-    "start:ui": "npm start --prefix ./client"
+    "start:ui": "npm start --prefix ./client",
+    "start:server": "npm start --prefix ./server"
   },
   "keywords": [
     "angular",
