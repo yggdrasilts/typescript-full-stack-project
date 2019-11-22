@@ -1,12 +1,44 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Body,
+  Put,
+  Delete,
+} from '@nestjs/common';
 
-@Controller()
+import { Observable } from '@yggdrasilts/axiosfit';
+
+import { BugService } from './shared/bug.service';
+import { Bug } from './shared/bug';
+
+@Controller('bug')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly bugService: BugService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getIssues(): Observable<Bug[]> {
+    return this.bugService.getIssues();
+  }
+
+  @Get(':id')
+  getIssue(@Param('id') id: string): Observable<Bug> {
+    return this.bugService.getIssue(id);
+  }
+
+  @Post()
+  createBug(@Body() bug: Bug): Observable<Bug> {
+    return this.bugService.createBug(bug);
+  }
+
+  @Put()
+  updateBug(@Param(':id') id: string, @Body() bug: Bug): Observable<Bug> {
+    return this.bugService.updateBug(id, bug);
+  }
+
+  @Delete()
+  deleteBug(@Param(':id') id: string): Observable<void> {
+    return this.bugService.deleteBug(id);
   }
 }
