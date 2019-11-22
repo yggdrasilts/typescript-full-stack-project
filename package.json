@@ -1,12 +1,19 @@
 {
   "name": "issues",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sample of full stack project.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm install --prefix ./client",
+    "start:ui": "npm start --prefix ./client"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "angular",
+    "nestjs",
+    "typescript"
+  ],
+  "author": "David López <davidlopez.david@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lice-js": "^0.2.0"
+  }
 }
