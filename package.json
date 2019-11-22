@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Sample of full stack project.",
   "scripts": {
-    "postinstall": "npm install --prefix ./client",
+    "clean:all": "npm run clean:all:ui && npm run clean:all:server && rm -rf node_modules package-lock.json",
+    "clean:all:ui": "rm -rf client/node_modules client/package-lock.json",
+    "clean:all:server": "rm -rf server/dist server/node_modules server/package-lock.json",
+    "postinstall": "npm run postinstall:ui && npm run postinstall:server",
+    "postinstall:ui": "npm install --prefix ./client",
+    "postinstall:server": "npm install --prefix ./server",
     "start:ui": "npm start --prefix ./client",
     "start:server": "npm start --prefix ./server"
   },
