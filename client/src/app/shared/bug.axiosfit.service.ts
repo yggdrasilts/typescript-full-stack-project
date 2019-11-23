@@ -7,40 +7,40 @@ import {
   GET,
   Path,
   PUT,
-  DELETE
-} from "@yggdrasilts/axiosfit";
+  DELETE,
+} from '@yggdrasilts/axiosfit';
 
-import { Bug } from "./bug";
+import { Bug } from '@issues/Bug';
 
-@HTTP("/bugtracking")
+@HTTP('/bug')
 export class RestBugService {
-  private static readonly serviceName = "RestBugService";
+  private static readonly serviceName = 'RestBugService';
 
-  @POST("/")
+  @POST('/')
   public createBug(@Body() data: Bug): Observable<AxiosResponse<Bug>> {
     return null;
   }
 
-  @GET("/:id")
-  public getIssue(@Path("id") id: string): Observable<AxiosResponse<Bug>> {
+  @GET('/:id')
+  public getIssue(@Path('id') id: string): Observable<AxiosResponse<Bug>> {
     return null;
   }
 
-  @GET("/")
+  @GET('/')
   public getIssues(): Observable<AxiosResponse<Bug[]>> {
     return null;
   }
 
-  @PUT("/:id")
+  @PUT('/:id')
   public updateBug(
-    @Path("id") id: string,
-    @Body() data: Bug
+    @Path('id') id: string,
+    @Body() data: Bug,
   ): Observable<AxiosResponse<Bug>> {
     return null;
   }
 
-  @DELETE("/:id")
-  public deleteBug(@Path("id") id: string): Observable<AxiosResponse<void>> {
+  @DELETE('/:id')
+  public deleteBug(@Path('id') id: string): Observable<AxiosResponse<void>> {
     return null;
   }
 }

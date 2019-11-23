@@ -10,7 +10,7 @@ import {
   DELETE,
 } from '@yggdrasilts/axiosfit';
 
-import { Bug } from './bug';
+import { Bug } from '@issues/Bug';
 
 @HTTP('/bugtracking')
 export class RestBugService {

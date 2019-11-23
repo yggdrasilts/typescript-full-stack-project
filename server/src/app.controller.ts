@@ -10,8 +10,9 @@ import {
 
 import { Observable } from '@yggdrasilts/axiosfit';
 
+import { Bug } from '@issues/Bug';
+
 import { BugService } from './shared/bug.service';
-import { Bug } from './shared/bug';
 
 @Controller('bug')
 export class AppController {
@@ -32,13 +33,13 @@ export class AppController {
     return this.bugService.createBug(bug);
   }
 
-  @Put()
-  updateBug(@Param(':id') id: string, @Body() bug: Bug): Observable<Bug> {
+  @Put(':id')
+  updateBug(@Param('id') id: string, @Body() bug: Bug): Observable<Bug> {
     return this.bugService.updateBug(id, bug);
   }
 
-  @Delete()
-  deleteBug(@Param(':id') id: string): Observable<void> {
+  @Delete(':id')
+  deleteBug(@Param('id') id: string): Observable<void> {
     return this.bugService.deleteBug(id);
   }
 }

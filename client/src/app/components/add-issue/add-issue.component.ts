@@ -1,13 +1,13 @@
-import { Component, OnInit, NgZone } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, OnInit, NgZone } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { BugService } from "../../shared/bug.service";
+import { BugService } from '../../shared/bug.service';
 
 @Component({
-  selector: "app-add-issue",
-  templateUrl: "./add-issue.component.html",
-  styleUrls: ["./add-issue.component.scss"]
+  selector: 'app-add-issue',
+  templateUrl: './add-issue.component.html',
+  styleUrls: ['./add-issue.component.scss'],
 })
 export class AddIssueComponent implements OnInit {
   issueForm: FormGroup;
@@ -21,20 +21,20 @@ export class AddIssueComponent implements OnInit {
     public fb: FormBuilder,
     private ngZone: NgZone,
     private router: Router,
-    public bugService: BugService
+    public bugService: BugService,
   ) {}
 
   addIssue() {
     this.issueForm = this.fb.group({
-      issue_name: [""],
-      issue_message: [""]
+      issue_name: [''],
+      issue_message: [''],
     });
   }
 
   submitForm() {
     this.bugService.createBug(this.issueForm.value).subscribe(res => {
-      console.log("Issue added!");
-      this.ngZone.run(() => this.router.navigateByUrl("/issues-list"));
+      console.log('Issue added!');
+      this.ngZone.run(() => this.router.navigateByUrl('/issues-list'));
     });
   }
 }

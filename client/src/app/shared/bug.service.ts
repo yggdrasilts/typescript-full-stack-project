@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { Axiosfit, Observable, throwError } from "@yggdrasilts/axiosfit";
-import { map, catchError } from "rxjs/operators";
+import { Axiosfit, Observable, throwError } from '@yggdrasilts/axiosfit';
+import { map, catchError } from 'rxjs/operators';
 
-import { Bug } from "./bug";
-import { RestBugService } from "./bug.axiosfit.service";
+import { Bug } from '@issues/Bug';
+import { RestBugService } from './bug.axiosfit.service';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class BugService {
   private restBugService: RestBugService;
   // Base url
-  private baseurl = "http://localhost:3000";
+  private baseurl = 'http://localhost:8000';
 
   constructor() {
     this.restBugService = new Axiosfit<RestBugService>()
@@ -24,7 +24,7 @@ export class BugService {
   createBug(data): Observable<Bug> {
     return this.restBugService.createBug(data).pipe(
       map(axiosResponse => axiosResponse.data),
-      catchError(this.errorHandl)
+      catchError(this.errorHandl),
     );
   }
 
@@ -32,7 +32,7 @@ export class BugService {
   getIssue(id): Observable<Bug> {
     return this.restBugService.getIssue(id).pipe(
       map(axiosResponse => axiosResponse.data),
-      catchError(this.errorHandl)
+      catchError(this.errorHandl),
     );
   }
 
@@ -40,7 +40,7 @@ export class BugService {
   getIssues(): Observable<Bug[]> {
     return this.restBugService.getIssues().pipe(
       map(axiosResponse => axiosResponse.data),
-      catchError(this.errorHandl)
+      catchError(this.errorHandl),
     );
   }
 
@@ -48,7 +48,7 @@ export class BugService {
   updateBug(id, data): Observable<Bug> {
     return this.restBugService.updateBug(id, data).pipe(
       map(axiosResponse => axiosResponse.data),
-      catchError(this.errorHandl)
+      catchError(this.errorHandl),
     );
   }
 
@@ -56,13 +56,13 @@ export class BugService {
   deleteBug(id) {
     return this.restBugService.deleteBug(id).pipe(
       map(axiosResponse => axiosResponse.data),
-      catchError(this.errorHandl)
+      catchError(this.errorHandl),
     );
   }
 
   // Error handling
   errorHandl(error) {
-    let errorMessage = "";
+    let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // Get client-side error
       errorMessage = error.error.message;

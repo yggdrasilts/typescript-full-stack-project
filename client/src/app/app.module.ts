@@ -1,28 +1,28 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 /* Service */
-import { BugService } from "./shared/bug.service";
+import { BugService } from './shared/bug.service';
 
 /* Forms module */
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AddIssueComponent } from "./components/add-issue/add-issue.component";
-import { EditIssueComponent } from "./components/edit-issue/edit-issue.component";
-import { IssueListComponent } from "./components/issue-list/issue-list.component";
+import { AddIssueComponent } from './components/add-issue/add-issue.component';
+import { EditIssueComponent } from './components/edit-issue/edit-issue.component';
+import { IssueListComponent } from './components/issue-list/issue-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddIssueComponent,
     EditIssueComponent,
-    IssueListComponent
+    IssueListComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
   providers: [BugService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

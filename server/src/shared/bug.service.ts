@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { ConfigService } from '../config/config.service';
 
-import { Bug } from './bug';
+import { Bug } from '@issues/Bug';
 import { RestBugService } from './bug.axiosfit.service';
 
 @Injectable()
