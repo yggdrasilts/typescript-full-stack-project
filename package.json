@@ -1,30 +1,31 @@
 {
-	"name": "issues",
-	"version": "1.0.0",
-	"description": "Sample of TypeScript Full Stack project.",
-	"scripts": {
-		"clean:all": "npm run clean:all:ui && npm run clean:all:server && npm run clean:all:shared-libs && rm -rf node_modules package-lock.json",
-		"clean:all:ui": "rm -rf client/node_modules client/package-lock.json",
-		"clean:all:server": "rm -rf server/dist server/node_modules server/package-lock.json",
-		"clean:all:shared-libs": "rm -rf shared-libs/data-entities/dist shared-libs/data-entities/node_modules shared-libs/data-entities/package-lock.json",
-		"postinstall": "npm run postinstall:ui && npm run postinstall:server && npm run postinstall:shared-libs",
-		"postinstall:ui": "npm install --prefix ./client",
-		"postinstall:server": "npm install --prefix ./server",
-		"postinstall:shared-libs": "npm install --prefix ./shared-libs/data-entities",
-		"start": "concurrently -n client-side,server-side \"npm run start:ui\" \"npm run start:server\"",
-		"start:ui": "npm start --prefix ./client",
-		"start:server": "npm start --prefix ./server"
-	},
-	"keywords": [
-		"angular",
-		"nestjs",
-		"typescript"
-	],
-	"author": "David López <davidlopez.david@gmail.com>",
-	"license": "MIT",
-	"devDependencies": {
-		"concurrently": "^5.0.0",
-		"lice-js": "^0.2.0",
-		"prettier": "^1.18.2"
-	}
+  "name": "issues",
+  "version": "1.0.0",
+  "description": "Sample of TypeScript Full Stack project.",
+  "scripts": {
+    "clean:all": "npm run clean:all:ui && npm run clean:all:server && npm run clean:all:shared-libs && rm -rf node_modules package-lock.json",
+    "clean:all:ui": "rm -rf client/node_modules client/package-lock.json",
+    "clean:all:server": "rm -rf server/dist server/node_modules server/package-lock.json",
+    "clean:all:shared-libs": "rm -rf shared-libs/data-entities/dist shared-libs/data-entities/node_modules shared-libs/data-entities/package-lock.json",
+    "postinstall": "npm run postinstall:ui && npm run postinstall:server && npm run postinstall:shared-libs",
+    "postinstall:ui": "npm install --prefix ./client",
+    "postinstall:server": "npm install --prefix ./server",
+    "postinstall:shared-libs": "npm install --prefix ./shared-libs/data-entities",
+    "start": "concurrently -n client-side,server-side \"npm run start:ui\" \"npm run start:server\"",
+    "start:ui": "npm start --prefix ./client",
+    "start:server": "npm start --prefix ./server"
+  },
+  "keywords": [
+    "typescript-full-stack",
+    "typescript",
+    "angular",
+    "nestjs"
+  ],
+  "author": "David López <davidlopez.david@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "lice-js": "^0.2.0",
+    "prettier": "^1.18.2"
+  }
 }
