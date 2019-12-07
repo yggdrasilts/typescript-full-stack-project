@@ -6,10 +6,13 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "docker:build": "npm run build && docker build -t issues-server .",
+    "docker:run": "npm run build && npm run docker:build && docker run -p 3000:3000 --name issues-server --rm issues-server",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "concurrently -n database,server \"json-server --watch db/database.json\" \"nest start server --watch\"",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
+    "start:docker": "concurrently -n database,server \"json-server --watch db/database.json\" \"node server/src/main\"",
     "start:prod": "node dist/main",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",

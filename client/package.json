@@ -4,6 +4,8 @@
   "author": "David López <davidlopez.david@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "docker:build": "docker build -t issues-ui .",
+    "docker:run": "npm run build && npm run docker:build && docker run -p 80:80 --name issues-ui --rm issues-ui",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

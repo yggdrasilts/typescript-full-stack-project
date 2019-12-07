@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  issues-ui:
+    build: ./client/.
+    ports:
+      - '80:80'
+    depends_on:
+      - issues-server
+    networks:
+      - issues
+
+  issues-server:
+    build: ./server/.
+    ports:
+      - '8000:8000'
+    networks:
+      - issues
+
+networks:
+  issues:
+    driver: bridge

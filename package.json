@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Sample of TypeScript Full Stack project.",
   "scripts": {
+    "build:docker": "npm run build:docker:ui && npm run build:docker:server && docker-compose up -d --build",
+    "build:docker:ui": "npm run build --prefix ./client",
+    "build:docker:server": "npm run build --prefix ./server",
     "clean:all": "npm run clean:all:ui && npm run clean:all:server && npm run clean:all:shared-libs && rm -rf node_modules package-lock.json",
-    "clean:all:ui": "rm -rf client/node_modules client/package-lock.json",
+    "clean:all:ui": "rm -rf client/dist client/node_modules client/package-lock.json",
     "clean:all:server": "rm -rf server/dist server/node_modules server/package-lock.json",
     "clean:all:shared-libs": "rm -rf shared-libs/data-entities/dist shared-libs/data-entities/node_modules shared-libs/data-entities/package-lock.json",
     "postinstall": "npm run postinstall:ui && npm run postinstall:server && npm run postinstall:shared-libs",
