@@ -6,7 +6,7 @@ import { EditIssueComponent } from './components/edit-issue/edit-issue.component
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'add-issue' },
+  { path: '', pathMatch: 'full', redirectTo: 'issues-list' },
   { path: 'add-issue', component: AddIssueComponent },
   { path: 'edit-issue/:id', component: EditIssueComponent },
   { path: 'issues-list', component: IssueListComponent },
