@@ -27,8 +27,8 @@
   "author": "David López <davidlopez.david@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^5.0.0",
+    "concurrently": "^5.0.1",
     "lice-js": "^0.2.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.19.1"
   }
 }
