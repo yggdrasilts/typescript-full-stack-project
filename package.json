@@ -3,18 +3,20 @@
   "version": "1.0.0",
   "description": "Sample of TypeScript Full Stack project.",
   "scripts": {
-    "build:docker": "npm run build:docker:ui && npm run build:docker:server && docker-compose up -d --build",
-    "build:docker:ui": "npm run build --prefix ./client",
-    "build:docker:server": "npm run build --prefix ./server",
-    "clean:all": "npm run clean:all:ui && npm run clean:all:server && npm run clean:all:shared-libs && rm -rf node_modules package-lock.json",
-    "clean:all:ui": "rm -rf client/dist client/node_modules client/package-lock.json",
-    "clean:all:server": "rm -rf server/dist server/node_modules server/package-lock.json",
-    "clean:all:shared-libs": "rm -rf shared-libs/data-entities/dist shared-libs/data-entities/node_modules shared-libs/data-entities/package-lock.json",
-    "postinstall": "npm run postinstall:ui && npm run postinstall:server && npm run postinstall:shared-libs",
+    "build:docker": "run-s build:docker:ui build:docker:server build:docker_compose",
+    "build:docker_compose": "docker-compose up -d --build",
+    "build:docker:ui": "run-s build --prefix ./client",
+    "build:docker:server": "run-s build --prefix ./server",
+    "clean:all": "run-s clean:all:ui clean:all:server clean:all:shared-libs clean:all:cmd",
+    "clean:all:cmd": "rimraf -rf node_modules package-lock.json yarn.lock",
+    "clean:all:ui": "rimraf -rf client/dist client/node_modules client/package-lock.json client/yarn.lock",
+    "clean:all:server": "rimraf -rf server/dist server/node_modules server/package-lock.json server/yarn.lock",
+    "clean:all:shared-libs": "rimraf -rf shared-libs/data-entities/dist shared-libs/data-entities/node_modules shared-libs/data-entities/package-lock.json shared-libs/data-entities/yarn.lock",
+    "postinstall": "run-s postinstall:ui postinstall:server postinstall:shared-libs",
     "postinstall:ui": "npm install --prefix ./client",
     "postinstall:server": "npm install --prefix ./server",
     "postinstall:shared-libs": "npm install --prefix ./shared-libs/data-entities",
-    "start": "concurrently -n client-side,server-side \"npm run start:ui\" \"npm run start:server\"",
+    "start": "concurrently -n client-side,server-side \"run-s start:ui\" \"run-s start:server\"",
     "start:ui": "npm start --prefix ./client",
     "start:server": "npm start --prefix ./server"
   },
@@ -27,8 +29,10 @@
   "author": "David López <davidlopez.david@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^5.0.1",
+    "concurrently": "^5.1.0",
     "lice-js": "^0.2.0",
-    "prettier": "^1.19.1"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2"
   }
 }
